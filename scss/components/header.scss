@@ -1,0 +1,56 @@
+.header {
+  height: $header-h;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $header-p;
+  border-radius: $header-border-r;
+  @include bg-blur;
+
+  & .logo {
+    display: flex;
+    align-items: center;
+
+    &__img {
+    }
+
+    &__title {
+      font-size: $fz-logo-title;
+    }
+  }
+  & .menu {
+    display: flex;
+    align-items: center;
+    gap: $menu-gap;
+
+    &__link {
+      font-size: $fz-main;
+      opacity: $menu-link-opacity-default;
+      transition: opacity $transition-speed;
+
+      &:hover {
+        opacity: initial;
+      }
+
+      &_active {
+        opacity: initial;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: $menu-link-circle-position-t;
+          left: $menu-link-circle-position-l;
+          transform: $menu-link-circle-transform;
+          width: $menu-link-circle-diameter;
+          height: $menu-link-circle-diameter;
+          border-radius: $menu-link-circle-border-r;
+          background: $white;
+        }
+      }
+    }
+
+    &__icon {
+    }
+  }
+}
